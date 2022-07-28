@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication7</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication7.styles.css" asp-append-version="true" />
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+   
+    <div class="container">
+        <main role="main" class="pb-3">
+            
+            @RenderBody()
+        </main>
+    </div>
+
+   
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/r.js" asp-append-version="true"></script>
+    
+ <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+     google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Job Views', 'Jobs'],
+    [8, 37], [4, 19.5], [11, 52], [4, 22], [3, 16.5], [6.5, 32.8], [14, 72]]);
+        
+
+  var options = {
+    title: 'Comulative job views vs. prediction',
+    hAxis: {title: 'Jobs'},
+    vAxis: {title: 'Job Views'},
+    legend: 'true',
+    trendlines: { 0: {} }    // Draw a trendline for data series 0.
+  };
+
+  var chart = new google.visualization.ScatterChart(document.getElementById('chart'));
+  chart.draw(data, options);
+}
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
