@@ -12,7 +12,7 @@ namespace UnitTestProject1
         public void TestGetData()
         {
             ClassConsumeFromDB cl = new ClassConsumeFromDB();
-            cl.GetData(DateTime.Today.AddDays(-6), DateTime.Today);
+            cl.GetData(DateTime.Today.AddDays(-10), DateTime.Today);
             
 
         }
